@@ -13,7 +13,15 @@ if (isset($_POST['valider']))
 	$var2=$_POST['valeur'];
 	$var3=$_POST['devise'];
 
-	$resultat=pourcentage($var1 , $var2);
+	if(!empty($var1) AND !empty($var2) AND !empty($var3))
+	{
+		$resultat=pourcentage($var1 , $var2);
+	}else{
+		$var1 = 0;
+		$var2 = 0;
+		//$var3 = ",00";
+	}
+
 }else{
 	$resultat = 0;
 	$var3='FCFA';
@@ -62,7 +70,7 @@ if (isset($_POST['valider']))
 					echo "$resultat $var3";
 				}else{
 					$resultat = 0;
-					echo "$resultat";
+					echo "$resultat $var3";
 				}
 				?></h1>
 		</div>
